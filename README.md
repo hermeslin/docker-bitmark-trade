@@ -3,6 +3,7 @@ dockerize bitmark trade service
 
 ## Setup
 copy `.env.example` to `.env`
+and dont forget setting your `HOST_DATADIR` and `HOST_ASSETS` location
 
 ## Install
 ```
