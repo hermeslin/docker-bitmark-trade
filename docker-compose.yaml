@@ -4,12 +4,14 @@ services:
   # bitmark trade
   #############################
   bitmark-trade:
-    image: hermeslin/private-chain:bitmark-trade-1.1
+    image: hermeslin/private-chain:bitmark-trade-1.2
+    hostname: bitmark-trade
     build:
       context: ./bitmark-trade
       dockerfile: Dockerfile
     environment:
       - BITMARK_TRADE_CHAIN=${BITMARK_TRADE_CHAIN}
+      - BITMARK_TRADE_API_TOKEN=${BITMARK_TRADE_API_TOKEN}
     volumes:
       - ${HOST_DATADIR}:/root/bitmark
       - ${HOST_ASSETS}:${BITMARK_TRADE_ASSETS}
@@ -17,3 +19,4 @@ services:
       - 8080
     ports:
       - ${HOST_PORT}:8080
+    network_mode: ${HOST_NETWORK_MODE}
